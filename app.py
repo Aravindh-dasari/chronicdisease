@@ -7,14 +7,14 @@ app = Flask(__name__, template_folder='templates')
 
 @app.route("/")
 
-@app.route("/kidney")
+@app.route("/Heart")
 def cancer():
-    return render_template("kidney.html")
+    return render_template("heart.html")
 
 def ValuePredictor(to_predict_list, size):
     to_predict = np.array(to_predict_list).reshape(1,size)
     if(size==7):
-        loaded_model = joblib.load(r'kidney_model.pkl')
+        loaded_model = joblib.load(r'heart_model.pkl')
         result = loaded_model.predict(to_predict)
     return result[0]
 
